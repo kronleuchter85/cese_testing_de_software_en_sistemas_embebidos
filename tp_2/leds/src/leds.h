@@ -15,4 +15,11 @@ void leds_set_on_all(void);
 
 void leds_set_off_all(void);
 
+//
+// esta funcion devuelve el estado de un determinado led
+// posibles valores de entrada: led [1-16]
+// posibles valores de salida: status [0 , 1]
+//
+uint8_t leds_get(uint8_t);
+
 #endif

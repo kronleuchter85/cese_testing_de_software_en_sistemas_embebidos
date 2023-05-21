@@ -87,3 +87,14 @@ void test_apagar_todos_los_leds(void){
     leds_set_off_all();
     TEST_ASSERT_EQUAL(0x0000 , puerto_virtual);
 }
+
+// dado el numero de un led se debe devolver su estado
+void test_consultar_estado_leds(void){
+
+    TEST_ASSERT_EQUAL(0 , leds_get(1));
+
+    leds_set_on(5);
+    TEST_ASSERT_EQUAL(1 , leds_get(5));
+
+
+}
