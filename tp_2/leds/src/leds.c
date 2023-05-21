@@ -16,13 +16,23 @@ void leds_initialize(uint16_t * d){
 }
 
 
-void leds_set_on(uint8_t led){
+void leds_set_on(uint8_t led , uint8_t * error){
+
+    if(led >16 || led <1){
+        *error = 1;
+        return;
+    }
     *_direccion |= indexToMask(led);
 }
 
 
 
-void leds_set_off(uint8_t led){
+void leds_set_off(uint8_t led , uint8_t * error){
+    
+    if(led >16 || led <1){
+        *error = 1;
+        return;
+    }
     *_direccion &= ~indexToMask(led);
 }
 
@@ -43,7 +53,13 @@ void leds_set_off_all(void){
 // posibles valores de entrada: led [1-16]
 // posibles valores de salida: status [0 , 1]
 //
-uint8_t leds_get(uint8_t nLed){
+uint8_t leds_get(uint8_t nLed , uint8_t * error ){
+
+
+    if(nLed >16 || nLed <1){
+        *error = 1;
+        return;
+    }
 
     // hacemos una conjuncion entre el valor de la mascara del led seleccionado y el estado de los leds, 
     // de forma tal que todos los demas leds estaran en cero y se obtendra el estado del led seleccionado.
