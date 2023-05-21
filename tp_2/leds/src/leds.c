@@ -45,5 +45,15 @@ void leds_set_off_all(void){
 //
 uint8_t leds_get(uint8_t nLed){
 
-    return 0;
+    // hacemos una conjuncion entre el valor de la mascara del led seleccionado y el estado de los leds, 
+    // de forma tal que todos los demas leds estaran en cero y se obtendra el estado del led seleccionado.
+    uint16_t leds = *_direccion & indexToMask(nLed);
+ 
+    // si el valor es distinto de cero entonces esta encendido
+    // de lo contrario esta apagado.
+    if(leds){
+        return 1;
+    }else{
+        return 0;
+    }
 }

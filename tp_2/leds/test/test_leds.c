@@ -91,10 +91,35 @@ void test_apagar_todos_los_leds(void){
 // dado el numero de un led se debe devolver su estado
 void test_consultar_estado_leds(void){
 
+    //
+    // checkeando el estado inicial de los leds
+    //
     TEST_ASSERT_EQUAL(0 , leds_get(1));
 
+
+    //
+    // con algunos leds prendidos separadamente
+    //
     leds_set_on(5);
     TEST_ASSERT_EQUAL(1 , leds_get(5));
 
+    leds_set_off(5);
+    TEST_ASSERT_EQUAL(0 , leds_get(5));
 
+
+    //
+    // con todos los leds prendidos
+    //
+    leds_set_on_all();
+    
+    uint8_t i;
+    for(i=1 ; i<=16 ; i++){
+       TEST_ASSERT_EQUAL(1 , leds_get(i)); 
+    }
+
+    leds_set_off_all();
+
+    for(i=1 ; i<=16 ; i++){
+       TEST_ASSERT_EQUAL(0 , leds_get(i)); 
+    }
 }
