@@ -69,9 +69,21 @@ void test_prender_y_apagar_varios_leds(void){
     
     leds_set_on(3);
     leds_set_on(5);
-    leds_set_off(2);
+    leds_set_off(3);
     leds_set_off(7);
     
     TEST_ASSERT_EQUAL(0x0010 , puerto_virtual);
 
+}
+
+// prendemos todos los leds juntoss
+void test_prender_todos_los_leds(void){
+    leds_set_on_all();
+
+    TEST_ASSERT_EQUAL(0xffff , puerto_virtual);
+}
+
+void test_apagar_todos_los_leds(void){
+    leds_set_off_all();
+    TEST_ASSERT_EQUAL(0x0000 , puerto_virtual);
 }

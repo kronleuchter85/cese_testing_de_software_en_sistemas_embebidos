@@ -24,5 +24,16 @@ void leds_set_on(uint8_t led){
 
 void leds_set_off(uint8_t led){
     *_direccion &= ~indexToMask(led);
+}
 
+
+
+void leds_set_on_all(void){
+    *_direccion |= 0xffff;
+}
+
+
+
+void leds_set_off_all(void){
+    *_direccion &= 0x0000;
 }

@@ -11,4 +11,8 @@ void leds_set_on(uint8_t l);
 
 void leds_set_off(uint8_t l);
 
+void leds_set_on_all(void);
+
+void leds_set_off_all(void);
+
 #endif
