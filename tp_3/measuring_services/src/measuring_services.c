@@ -39,3 +39,8 @@ float measuring_service_get_pressure(){
 
     return bmp280_service_get_pressure();
 }
+
+
+void measuring_service_get_joystick_readings(float * x, float * y){
+    
+}

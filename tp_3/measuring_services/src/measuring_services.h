@@ -14,4 +14,6 @@ int8_t measuring_service_get_light_level(void);
 
 float measuring_service_get_pressure(void);
 
+void measuring_service_get_joystick_readings(float * x, float * y);
+
 #endif
