@@ -23,6 +23,12 @@ void test_measuring_services_init(){
     motors_service_init_Expect();
 
     measuring_services_init();
+}
+
+
+void test_get_measures_temperature_and_humidity(){
+
+    
 
 
 }
