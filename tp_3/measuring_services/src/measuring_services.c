@@ -25,5 +25,7 @@ void measuring_service_get_temperature_and_humidity(int16_t * h, int16_t * t){
     int16_t humidity = dht11_service_get_humidity();
     int16_t temperature = dht11_service_get_temperature();
 
+    *h = humidity;
+    *t = temperature;
 }
 

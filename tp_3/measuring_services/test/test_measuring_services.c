@@ -34,10 +34,10 @@ void test_get_measures_temperature_and_humidity(){
     int16_t expectedTemp = 22;
     int16_t expectedHumidity = 57;
 
-    dht11_service_get_temperature_ExpectAndReturn(expectedTemp);
     dht11_service_get_humidity_ExpectAndReturn(expectedHumidity);
+    dht11_service_get_temperature_ExpectAndReturn(expectedTemp);
 
-    measuring_service_get_temperature_and_humidity(&temperature , &humidity);
+    measuring_service_get_temperature_and_humidity(&humidity , &temperature);
 
     TEST_ASSERT_EQUAL(expectedTemp , temperature);
     TEST_ASSERT_EQUAL(expectedHumidity , humidity);
