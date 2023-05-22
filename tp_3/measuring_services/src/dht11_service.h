@@ -8,4 +8,7 @@
 
 void dht11_service_init(void);
 
-#endif
+int16_t dht11_service_get_humidity();
+int16_t dht11_service_get_temperature();
+
+#endif 
