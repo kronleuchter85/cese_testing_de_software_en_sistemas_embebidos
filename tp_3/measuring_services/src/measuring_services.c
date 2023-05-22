@@ -34,3 +34,8 @@ int8_t measuring_service_get_light_level(){
 
     return light_service_get_light_level();
 }
+
+float measuring_service_get_pressure(){
+
+    return 0.0;
+}
