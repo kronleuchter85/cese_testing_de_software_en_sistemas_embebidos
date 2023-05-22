@@ -42,5 +42,6 @@ float measuring_service_get_pressure(){
 
 
 void measuring_service_get_joystick_readings(float * x, float * y){
-    
+    *x = joystick_service_get_reading_x();
+    *y = joystick_service_get_reading_y();
 }
