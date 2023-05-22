@@ -11,4 +11,6 @@ void measuring_services_init(void){
 
     bmp280_service_init();
 
+    light_service_init();
+
 }
