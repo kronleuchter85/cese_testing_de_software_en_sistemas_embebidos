@@ -8,4 +8,6 @@
 
 void light_service_init(void);
 
+int8_t light_service_get_light_level(void);
+
 #endif
