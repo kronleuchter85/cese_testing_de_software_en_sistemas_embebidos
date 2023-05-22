@@ -68,4 +68,10 @@ void test_get_measures_pressure(){
 void test_get_values_joystick(){
     float expected_x = -100.0;
     float expected_y = 200.0;
+
+    float value_x , value_y;
+    measuring_service_get_joystick_readings(&value_x , &value_y);
+
+    TEST_ASSERT_EQUAL(expected_x , value_x);
+    TEST_ASSERT_EQUAL(expected_y , value_y);
 }
