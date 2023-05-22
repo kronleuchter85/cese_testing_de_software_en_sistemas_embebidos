@@ -29,3 +29,8 @@ void measuring_service_get_temperature_and_humidity(int16_t * h, int16_t * t){
     *t = temperature;
 }
 
+
+int8_t measuring_service_get_light_level(){
+
+    return 0;
+}
