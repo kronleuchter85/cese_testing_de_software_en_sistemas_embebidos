@@ -28,7 +28,10 @@ void test_measuring_services_init(){
 
 void test_get_measures_temperature_and_humidity(){
 
-    
+    int16_t temperature;
+    int16_t humidity;
+
+    measuring_service_get_temperature_and_humidity(&temperature , &humidity);
 
 
 }
