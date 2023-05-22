@@ -1,8 +1,9 @@
 #include "unity.h"
 
 #include "measuring_services.h"
-#include "mock_dht11_service.h"
 
+#include "mock_dht11_service.h"
+#include "mock_bmp280_service.h"
 
 void test_measuring_services_init(){
 
