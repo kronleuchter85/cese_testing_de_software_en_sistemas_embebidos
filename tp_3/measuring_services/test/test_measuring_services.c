@@ -69,6 +69,9 @@ void test_get_values_joystick(){
     float expected_x = -100.0;
     float expected_y = 200.0;
 
+    joystick_service_get_reading_x_ExpectAndReturn(expected_x);
+    joystick_service_get_reading_y_ExpectAndReturn(expected_y);
+
     float value_x , value_y;
     measuring_service_get_joystick_readings(&value_x , &value_y);
 
