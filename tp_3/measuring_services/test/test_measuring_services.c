@@ -45,7 +45,7 @@ void test_get_measures_temperature_and_humidity(){
 }
 
 void test_get_measures_light(){
-    int8_t expectedLight;
+    int8_t expectedLight = 20;
 
     light_service_get_light_level_ExpectAndReturn(expectedLight);
 
@@ -55,7 +55,7 @@ void test_get_measures_light(){
 }
 
 void test_get_measures_pressure(){
-    float expectedPressure;
+    float expectedPressure = 200.5;
 
     bmp280_service_get_pressure_ExpectAndReturn(expectedPressure);
 
@@ -63,4 +63,9 @@ void test_get_measures_pressure(){
 
     TEST_ASSERT_EQUAL(expectedPressure , pressure);
 
+}
+
+void test_get_values_joystick(){
+    float expected_x = -100.0;
+    float expected_y = 200.0;
 }
