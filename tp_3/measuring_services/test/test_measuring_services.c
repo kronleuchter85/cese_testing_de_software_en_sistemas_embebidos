@@ -53,3 +53,12 @@ void test_get_measures_light(){
 
     TEST_ASSERT_EQUAL(expectedLight , light);
 }
+
+void test_get_measures_pressure(){
+    float expectedPressure;
+
+    float pressure = measuring_service_get_pressure();
+
+    TEST_ASSERT_EQUAL(expectedPressure , pressure);
+
+}
