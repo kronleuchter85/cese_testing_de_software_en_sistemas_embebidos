@@ -43,3 +43,7 @@ void test_get_measures_temperature_and_humidity(){
     TEST_ASSERT_EQUAL(expectedHumidity , humidity);
     
 }
+
+void test_get_measures_light(){
+    
+}
