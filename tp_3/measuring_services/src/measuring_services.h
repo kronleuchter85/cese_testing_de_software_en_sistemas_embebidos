@@ -7,5 +7,6 @@
 #include "stdbool.h"
 
 
+void measuring_services_init(void);
 
 #endif
