@@ -57,6 +57,8 @@ void test_get_measures_light(){
 void test_get_measures_pressure(){
     float expectedPressure;
 
+    bmp280_service_get_pressure_ExpectAndReturn(expectedPressure);
+
     float pressure = measuring_service_get_pressure();
 
     TEST_ASSERT_EQUAL(expectedPressure , pressure);
