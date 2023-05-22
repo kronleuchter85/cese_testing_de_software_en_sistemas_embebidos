@@ -45,5 +45,9 @@ void test_get_measures_temperature_and_humidity(){
 }
 
 void test_get_measures_light(){
-    
+    int8_t expectedLight;
+
+    int8_t light = measuring_service_get_light_level();
+
+    TEST_ASSERT_EQUAL(expectedLight , light);
 }
