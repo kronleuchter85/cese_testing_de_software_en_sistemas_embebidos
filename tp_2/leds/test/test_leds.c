@@ -88,8 +88,6 @@ void test_consultar_estado_leds_apagado(void){
     TEST_ASSERT_EQUAL(0 , leds_is_on(5 , &error));
 }
 
-
-
 // dado el numero de un led se debe devolver su estado
 void test_consultar_estado_leds_encendido(void){
 
@@ -97,7 +95,6 @@ void test_consultar_estado_leds_encendido(void){
     leds_set_on(5 , &error);
     TEST_ASSERT_EQUAL(1 , leds_is_on(5 , &error));
 }
-
 
 // checkeamos que los parametros para set_on se encuentren en los limites
 void test_parametros_fuera_de_limite_set_on(void){
@@ -110,7 +107,6 @@ void test_parametros_fuera_de_limite_set_on(void){
     TEST_ASSERT_EQUAL(1 , error);
 }
 
-
 // checkeamos que los parametros para set_off se encuentren en los limites
 void test_parametros_fuera_de_limite_set_off(void){
 
@@ -121,7 +117,6 @@ void test_parametros_fuera_de_limite_set_off(void){
     leds_set_off(17 , &error);
     TEST_ASSERT_EQUAL(1 , error);
 }
-
 
 // checkeamos que los parametros para led_get se encuentren en los limites
 void test_parametros_fuera_de_limite_led_get(void){
