@@ -8,11 +8,11 @@
 #define LEDS_RANGE_MAX               16
 #define LEDS_RANGE_MIN               1
 
+static uint16_t * direccion ;
+
 uint16_t indexToMask(uint8_t led){
     return (FIRST_BIT << (led - INDEX_OFFSET));
 }
-
-static uint16_t * direccion ;
 
 int validate_range(uint8_t led , uint8_t * error){
     if(led >LEDS_RANGE_MAX || led <LEDS_RANGE_MIN){
@@ -21,7 +21,6 @@ int validate_range(uint8_t led , uint8_t * error){
     }
     return 0;
 }
-
 
 void leds_initialize(uint16_t * d){
     *d = ALL_LEDS_OFF;
