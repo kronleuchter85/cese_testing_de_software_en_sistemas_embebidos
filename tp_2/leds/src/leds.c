@@ -6,6 +6,9 @@
 #define ALL_LEDS_ON             0xffff
 #define OUTPUT_ERROR_STATUS     1
 
+#define LEDS_RANGE_MAX               16
+#define LEDS_RANGE_MIN               1
+
 uint16_t indexToMask(uint8_t led){
     return (FIRST_BIT << (led - INDEX_OFFSET));
 }
@@ -13,7 +16,7 @@ uint16_t indexToMask(uint8_t led){
 static uint16_t * direccion ;
 
 int validate_range(uint8_t led , uint8_t * error){
-    if(led >16 || led <1){
+    if(led >LEDS_RANGE_MAX || led <LEDS_RANGE_MIN){
         *error = OUTPUT_ERROR_STATUS;
         return OUTPUT_ERROR_STATUS;
     }
