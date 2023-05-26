@@ -5,7 +5,6 @@
 #define ALL_LEDS_OFF            0x0000
 #define ALL_LEDS_ON             0xffff
 #define OUTPUT_ERROR_STATUS     1
-
 #define LEDS_RANGE_MAX               16
 #define LEDS_RANGE_MIN               1
 
