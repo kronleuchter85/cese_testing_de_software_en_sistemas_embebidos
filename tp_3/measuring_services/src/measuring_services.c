@@ -5,6 +5,8 @@
 #include "joystick_service.h"
 #include "display_service.h"
 #include "motors_service.h"
+#include "dht.h"
+
 
 void measuring_services_init(void){
 
