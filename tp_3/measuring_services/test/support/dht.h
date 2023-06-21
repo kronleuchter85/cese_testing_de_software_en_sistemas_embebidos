@@ -52,6 +52,7 @@ extern "C" {
 #endif
 
 #include <stdint.h>
+#include "commons.h"
 
 /**
  * Sensor type
@@ -64,14 +65,6 @@ typedef enum
 } dht_sensor_type_t;
 
 
-typedef enum {
-        MOCKED_FIELD_1
-}gpio_num_t;
-
-
-typedef enum{
-        SUCCESS_READING , ERROR_READING
-} esp_err_t;
 
 /**
  * @brief Read integer data from sensor on specified pin

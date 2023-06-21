@@ -8,19 +8,32 @@
 #include "mock_motors_service.h"
 
 #include "mock_dht.h"
+#include "mock_bmp280.h"
 
-void test_measuring_services_init(){
+extern bmp280_params_t params;
+extern bmp280_t dev;
 
-    //
-    // checkeamos que se inicializan los diferentes sub modulos
-    //
-    bmp280_service_init_Expect();
-    light_service_init_Expect();
-    joystick_service_init_Expect();
-    display_service_init_Expect();
-    motors_service_init_Expect();
-    measuring_services_init();
+void test_measuring_services_init_Success(){
+
+    bmp280_init_default_params_ExpectAndReturn(&params , SUCCESS_READING);
+    bmp280_init_desc_ExpectAndReturn(&dev , BMP280_I2C_ADDRESS_0 , 0 , I2C_MOCKED_PORT_SDA , I2C_MOCKED_PORT_SCL , SUCCESS_READING);
+    bmp280_init_ExpectAndReturn(&dev , &params , SUCCESS_READING);
+
+    int8_t innitializationResult = measuring_services_init();
+
+    TEST_ASSERT_EQUAL(0,innitializationResult);
 }
+
+void test_measuring_services_init_Error(){
+
+    bmp280_init_default_params_ExpectAndReturn(&params , SUCCESS_READING);
+    bmp280_init_desc_ExpectAndReturn(&dev , BMP280_I2C_ADDRESS_0 , 0 , I2C_MOCKED_PORT_SDA , I2C_MOCKED_PORT_SCL , ERROR_READING);
+    
+    int8_t innitializationResult = measuring_services_init();
+
+    TEST_ASSERT_EQUAL(-1,innitializationResult);
+}
+
 
 
 void test_get_measures_temperature_and_humidity_successfully(){

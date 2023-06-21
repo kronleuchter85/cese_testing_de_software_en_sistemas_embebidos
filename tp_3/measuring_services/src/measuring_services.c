@@ -6,6 +6,7 @@
 #include "motors_service.h"
 
 #include "dht.h"
+#include "bmp280.h"
 
 
 //
@@ -15,16 +16,29 @@
 static const gpio_num_t dht_gpio = 2;
 static const dht_sensor_type_t sensor_type = DHT_TYPE_DHT11;
 
-void measuring_services_init(void){
+//
+// BMP280
+//
+bmp280_params_t params;
+bmp280_t dev;
+
+int8_t measuring_services_init(void){
 
     //
     // inicializacion de modulos
     //
-    bmp280_service_init();
-    light_service_init();
-    joystick_service_init();
-    display_service_init();
-    motors_service_init();
+
+    if(bmp280_init_default_params(&params) != SUCCESS_READING){
+        return -1;
+    }
+    if(bmp280_init_desc(&dev, BMP280_I2C_ADDRESS_0, 0, I2C_MOCKED_PORT_SDA, I2C_MOCKED_PORT_SCL) != SUCCESS_READING ){
+        return -1;
+    }
+    if(bmp280_init(&dev, &params)!= SUCCESS_READING){
+        return -1;
+    }
+
+    return 0;
 }
 
 

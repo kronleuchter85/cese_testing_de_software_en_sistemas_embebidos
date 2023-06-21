@@ -47,6 +47,8 @@ extern "C" {
 
 
 #include <stdint.h>
+#include "commons.h"
+#include <stdbool.h>
 
 #define BMP280_I2C_ADDRESS_0  0x76 //!< I2C address when SDO pin is low
 #define BMP280_I2C_ADDRESS_1  0x77 //!< I2C address when SDO pin is high
@@ -55,23 +57,14 @@ extern "C" {
 #define BME280_CHIP_ID  0x60 //!< BME280 has chip-id 0x60
 
 
-typedef struct {
-    uint8_t MOCKED_FIELD_3;
-} gpio_num_t;
 
-typedef struct {
-    uint8_t MOCKED_FIELD_2;
+typedef enum {
+     I2C_MOCKED_PORT_SDA , I2C_MOCKED_PORT_SCL
 } i2c_port_t;
 
-typedef struct {
-
-    uint8_t MOCKED_FIELD_1;
-
+typedef enum {
+     I2C_MOCKED_DEV_Field
 }i2c_dev_t;
-
-typedef enum{
-        MOCKED_FIELD_2
-} esp_err_t;
 
 /**
  * Mode of BMP280 module operation.
