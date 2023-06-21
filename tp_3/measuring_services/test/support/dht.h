@@ -46,12 +46,12 @@
 #ifndef __DHT_H__
 #define __DHT_H__
 
-#include <driver/gpio.h>
-#include <esp_err.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include <stdint.h>
 
 /**
  * Sensor type
@@ -62,6 +62,16 @@ typedef enum
     DHT_TYPE_AM2301,      //!< AM2301 (DHT21, DHT22, AM2302, AM2321)
     DHT_TYPE_SI7021       //!< Itead Si7021
 } dht_sensor_type_t;
+
+
+typedef enum {
+        MOCKED_FIELD_1
+}gpio_num_t;
+
+
+typedef enum{
+        SUCCESS_READING , ERROR_READING
+} esp_err_t;
 
 /**
  * @brief Read integer data from sensor on specified pin

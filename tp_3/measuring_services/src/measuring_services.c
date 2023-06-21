@@ -1,19 +1,25 @@
 #include "measuring_services.h"
-#include "dht11_service.h"
 #include "bmp280_service.h"
 #include "light_service.h"
 #include "joystick_service.h"
 #include "display_service.h"
 #include "motors_service.h"
+
 #include "dht.h"
 
+
+//
+// DHT11 consts
+//
+
+static const gpio_num_t dht_gpio = 2;
+static const dht_sensor_type_t sensor_type = DHT_TYPE_DHT11;
 
 void measuring_services_init(void){
 
     //
     // inicializacion de modulos
     //
-    dht11_service_init();
     bmp280_service_init();
     light_service_init();
     joystick_service_init();
@@ -24,11 +30,17 @@ void measuring_services_init(void){
 
 void measuring_service_get_temperature_and_humidity(int16_t * h, int16_t * t){
 
-    int16_t humidity = dht11_service_get_humidity();
-    int16_t temperature = dht11_service_get_temperature();
+    int16_t temperature = 0;
+    int16_t humidity = 0;
 
-    *h = humidity;
-    *t = temperature;
+    if(dht_read_data(sensor_type, dht_gpio, &humidity, &temperature) == SUCCESS_READING){
+        *h = humidity;
+        *t = temperature;
+    }else{
+        *h = -1;
+        *t = -1;
+    }
+
 }
 
 
