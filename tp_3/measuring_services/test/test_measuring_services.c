@@ -1,11 +1,6 @@
 #include "unity.h"
 
 #include "measuring_services.h"
-#include "mock_bmp280_service.h"
-#include "mock_light_service.h"
-#include "mock_joystick_service.h"
-#include "mock_display_service.h"
-#include "mock_motors_service.h"
 
 #include "mock_dht.h"
 #include "mock_bmp280.h"

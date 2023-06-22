@@ -1,9 +1,4 @@
 #include "measuring_services.h"
-#include "bmp280_service.h"
-#include "light_service.h"
-#include "joystick_service.h"
-#include "display_service.h"
-#include "motors_service.h"
 
 #include "dht.h"
 #include "bmp280.h"

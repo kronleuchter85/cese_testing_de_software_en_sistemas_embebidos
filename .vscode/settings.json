@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "leds.h": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "bmp280.h": "c"
     }
 }
