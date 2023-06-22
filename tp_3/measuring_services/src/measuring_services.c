@@ -57,19 +57,18 @@ void measuring_service_get_temperature_and_humidity(int16_t * h, int16_t * t){
 
 }
 
+void measuring_service_get_pressure( float * p,float * t,float * h){
 
-int8_t measuring_service_get_light_level(){
+    float pressure =0, temperature =0, humidity =0;
 
-    return light_service_get_light_level();
+    if(bmp280_read_float(&dev, &temperature, &pressure, &humidity) == SUCCESS_READING){
+        *h = humidity;
+        *t = temperature;
+        *p = pressure;
+    }else{
+        *h = -1;
+        *t = -1;
+        *p = -1;
+    }
 }
 
-float measuring_service_get_pressure(){
-
-    return bmp280_service_get_pressure();
-}
-
-
-void measuring_service_get_joystick_readings(float * x, float * y){
-    *x = joystick_service_get_reading_x();
-    *y = joystick_service_get_reading_y();
-}
