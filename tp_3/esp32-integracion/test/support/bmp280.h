@@ -56,11 +56,7 @@ extern "C" {
 #define BMP280_CHIP_ID  0x58 //!< BMP280 has chip-id 0x58
 #define BME280_CHIP_ID  0x60 //!< BME280 has chip-id 0x60
 
-
-
-typedef enum {
-     I2C_MOCKED_PORT_SDA , I2C_MOCKED_PORT_SCL
-} i2c_port_t;
+typedef int i2c_port_t;
 
 typedef enum {
      I2C_MOCKED_DEV_Field
